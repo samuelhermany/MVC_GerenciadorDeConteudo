@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,12 +14,24 @@ namespace MVC_GerenciadorDeConteudo.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Novo()
+        {
+            return View();
+        }
+
+        public ActionResult About(int id)
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
+
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
+
+        //    return View();
+        //}
 
         public ActionResult Contact()
         {
