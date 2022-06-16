@@ -33,8 +33,29 @@ namespace MVC_GerenciadorDeConteudo.Controllers
             pagina.Save();
             Response.Redirect("/paginas");
         }
+        
+        public void Excluir(int id)
+        {
+            Pagina.Excluir(id);
+            Response.Redirect("/paginas");
+        }
+
+        public ActionResult Editar(int id)
+        {
+            var pagina = Pagina.BuscaPorId(id);
+            ViewBag.Pagina = pagina;
+            return View();
+        }
+
+        public ActionResult Preview(int id)
+        {
+            var pagina = Pagina.BuscaPorId(id);
+            ViewBag.Pagina = pagina;
+            return View();
+        }
 
         [HttpPost]
+        [ValidateInput(false)]
         public void Alterar(int id)
         {
             try
@@ -50,24 +71,11 @@ namespace MVC_GerenciadorDeConteudo.Controllers
 
                 TempData["sucesso"] = "Página alterada com sucesso";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                TempData["erro"] = "Página não pode ser alterada";
+                TempData["erro"] = "Página não pode ser alterada (" + ex.Message + ")";
             }
 
-            Response.Redirect("/paginas");
-        }
-
-        public ActionResult Editar(int id)
-        {
-            var pagina = Pagina.BuscaPorId(id);
-            ViewBag.Pagina = pagina;
-            return View();
-        }
-
-        public void Excluir(int id)
-        {
-            Pagina.Excluir(id);
             Response.Redirect("/paginas");
         }
     }

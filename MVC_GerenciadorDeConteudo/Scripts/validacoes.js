@@ -1,5 +1,5 @@
 ﻿var ValidaExclusao = function (id, evento) {
-    if (confirm("Confirmna a exclusão?")) {
+    if (confirm("Confirma a exclusão?")) {
         return true;
     }
     else {

@@ -62,6 +62,12 @@ namespace MVC_GerenciadorDeConteudo
               );
 
             routes.MapRoute(
+             "paginas_preview",
+             "paginas/{id}/preview",
+             new { controller = "Paginas", action = "Preview", id = 0 }
+             );
+
+            routes.MapRoute(
                 "contato",
                 "contato",
                 new { controller = "Home", action = "contact" }
