@@ -34,7 +34,10 @@
                 <td>@p.Nome</td>
                 <td>@p.Data</td>
                 <td>
-                    <a href="/paginas/@p.Id/editar">Alterar dados</a>
+                    <a href="/paginas/@p.Id/editar" class="btn btn-primary">Alterar dados</a>
+                </td>
+                <td>
+                    <a href="/paginas/@p.Id/excluir" class="btn btn-danger" onclick="ValidaExclusao(@p.Id, event)">Excluir dados</a>
                 </td>
             </tr>
         }

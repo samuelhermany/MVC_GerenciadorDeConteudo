@@ -56,6 +56,12 @@ namespace MVC_GerenciadorDeConteudo
               );
 
             routes.MapRoute(
+              "paginas_excluir",
+              "paginas/{id}/excluir",
+              new { controller = "Paginas", action = "Excluir", id = 0 }
+              );
+
+            routes.MapRoute(
                 "contato",
                 "contato",
                 new { controller = "Home", action = "contact" }

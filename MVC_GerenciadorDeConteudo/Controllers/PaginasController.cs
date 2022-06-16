@@ -34,14 +34,6 @@ namespace MVC_GerenciadorDeConteudo.Controllers
             Response.Redirect("/paginas");
         }
 
-
-        public ActionResult Editar(int id)
-        {
-            var pagina = Pagina.BuscaPorId(id);
-            ViewBag.Pagina = pagina;
-            return View();
-        }
-
         [HttpPost]
         public void Alterar(int id)
         {
@@ -63,6 +55,19 @@ namespace MVC_GerenciadorDeConteudo.Controllers
                 TempData["erro"] = "Página não pode ser alterada";
             }
 
+            Response.Redirect("/paginas");
+        }
+
+        public ActionResult Editar(int id)
+        {
+            var pagina = Pagina.BuscaPorId(id);
+            ViewBag.Pagina = pagina;
+            return View();
+        }
+
+        public void Excluir(int id)
+        {
+            Pagina.Excluir(id);
             Response.Redirect("/paginas");
         }
     }
